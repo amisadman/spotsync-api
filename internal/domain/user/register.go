@@ -20,5 +20,5 @@ func RegisterRoutes(e *echo.Echo, db *gorm.DB, cfg *config.Config) {
 	api.POST("/register", userHandler.CreateUser)
 	api.POST("/login", userHandler.LoginUser)
 	api.POST("/refresh", userHandler.RefreshToken)
-	api.GET("/me", userHandler.GetMe, middlewares.AuthMiddleware(jwtService))
+	api.GET("/me", userHandler.GetMe, middleware.AuthMiddleware(jwtService))
 }
