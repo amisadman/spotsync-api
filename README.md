@@ -4,7 +4,7 @@ SpotSync is a centralized backend API for busy airports and malls to manage park
 
 ## 🔗 Project URLs
 - **Live API Endpoint:** `https://spotsync-api.onrender.com` (Example Placeholder)
-- **GitHub Repository:** `https://github.com/Sadman-Islam/spotsync-api`
+- **GitHub Repository:** `https://github.com/amisadman/spotsync-api`
 
 ---
 
