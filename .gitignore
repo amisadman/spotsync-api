@@ -1,0 +1,17 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go Workspace
+go.work
+go.work.sum
+
+# Environment files
+.env
+
+# Temp folders (like Air output)
+tmp/
