@@ -3,7 +3,7 @@
 SpotSync is a centralized backend API for busy airports and malls to manage parking zones and reserve limited EV charging spots, ensuring capacity limits are strictly enforced.
 
 ## 🔗 Project URLs
-- **Live API Endpoint:** `https://spotsync-api.onrender.com` (Example Placeholder)
+- **Live API Endpoint:** `https://spotsync-api-ivb0.onrender.com`
 - **GitHub Repository:** `https://github.com/amisadman/spotsync-api`
 
 ---
@@ -59,6 +59,48 @@ The project is structured according to Clean Architecture principles to separate
 - **Service (`service.go`):** Core business logic containing calculations, bcrypt password hashing, and token signing.
 - **Repository (`repository.go`):** Interacts with the database using GORM. Handles transactions and concurrency row locks.
 - **Entity (`entity.go`):** Defines GORM models mapping to the database tables.
+
+---
+
+## 🗄️ Database Schema Design
+
+The following Entity-Relationship diagram represents the database schema and GORM model relationships:
+
+```mermaid
+erDiagram
+    users {
+        uint id PK
+        string name
+        string email UK
+        string password
+        string role
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
+    }
+    parking_zones {
+        uint id PK
+        string name
+        string type
+        int total_capacity
+        decimal price_per_hour
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
+    }
+    reservations {
+        uint id PK
+        uint user_id FK
+        uint zone_id FK
+        string license_plate
+        string status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    users ||--o{ reservations : "makes"
+    parking_zones ||--o{ reservations : "holds"
+```
 
 ---
 
