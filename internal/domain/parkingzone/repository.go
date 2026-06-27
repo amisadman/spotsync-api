@@ -8,6 +8,7 @@ type Repository interface {
 	CreateZone(zone *ParkingZone) error
 	GetAllZones() ([]ParkingZone, error)
 	GetZoneByID(id uint) (*ParkingZone, error)
+	GetActiveReservationsCount(zoneID uint) (int, error)
 }
 
 type parkingZoneRepository struct {
@@ -38,4 +39,10 @@ func (r *parkingZoneRepository) GetZoneByID(id uint) (*ParkingZone, error) {
 		return nil, err
 	}
 	return &zone, nil
+}
+
+func (r *parkingZoneRepository) GetActiveReservationsCount(zoneID uint) (int, error) {
+	var count int64
+	err := r.db.Table("reservations").Where("zone_id = ? AND status = ?", zoneID, "active").Count(&count).Error
+	return int(count), err
 }
