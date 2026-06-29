@@ -28,6 +28,7 @@ func Start(db *gorm.DB, cfg *config.Config){
 	e:=  echo.New();
 	e.Validator = &CustomValidator{validator: validator.New()}
 	e.Use(middleware.RequestLogger())
+	e.Use(middleware.CORS())
 	
 	e.GET("/health", func(c *echo.Context) error {
 		return c.JSON(http.StatusOK, map[string]string{
