@@ -3,8 +3,8 @@
 SpotSync is a centralized backend API for busy airports and malls to manage parking zones and reserve limited EV charging spots, ensuring capacity limits are strictly enforced.
 
 ## 🔗 Project URLs
-- **Live API Endpoint:** `https://spotsync-api-ivb0.onrender.com`
-- **GitHub Repository:** `https://github.com/amisadman/spotsync-api`
+- **Live API Endpoint:** [https://spotsync-api-ivb0.onrender.com/health](https://spotsync-api-ivb0.onrender.com/health)
+- **GitHub Repository:** [https://github.com/amisadman/spotsync-api](https://github.com/amisadman/spotsync-api)
 
 ---
 
