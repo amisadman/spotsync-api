@@ -38,7 +38,6 @@ func Start(db *gorm.DB, cfg *config.Config){
 	e:=  echo.New();
 	e.Validator = &CustomValidator{validator: validator.New()}
 	e.Use(middleware.RequestLogger())
-	e.Use(middleware.CORS())
 	
 	e.GET("/", func(c *echo.Context) error {
 		hostname, err := os.Hostname()
